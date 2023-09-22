@@ -19,11 +19,6 @@ This project is designed to collect metadata for files in a specified directory 
     ```
     git clone https://github.com/joaok-dev/file-metadata-collector.git
     ```
-2. Navigate to the project directory and install required packages:
-    ```
-    pip install -r requirements.txt
-    ```
-
 ## Usage
 
 To run the script, navigate to the `src` directory and execute the following command:
