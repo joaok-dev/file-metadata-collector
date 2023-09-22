@@ -7,17 +7,17 @@ directory_contents = os.listdir(directory_path)
 print(f"Contents of directory {directory_path}: {directory_contents}")
 print()
 
+all_file_metadata = []
 
 for file in directory_contents:
     if os.path.isfile(file):
-        file_path = os.path.join(directory_path, file)
-        file_metadata = os.stat(directory_path)
+        file_metadata = {
+            "file_name": str(file),
+            "file_size": os.stat(file).st_size,
+            "last_modified": datetime.fromtimestamp(os.stat(file).st_mtime).strftime(
+                "%Y-%m-%d %H:%M:%S"
+            ),
+        }
+        all_file_metadata.append(file_metadata)
 
-        file_name = str(file)
-        file_size = file_metadata.st_size
-        file_last_modification = datetime.fromtimestamp(
-            file_metadata.st_mtime
-        ).strftime("%Y-%m-%d %H:%M:%S")
-
-        print(f"{file_name} - Size: {file_size} bytes")
-        print(f"Last Modified: {file_last_modification}")
+print(all_file_metadata)
